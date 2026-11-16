@@ -1,0 +1,45 @@
+/* Íris / ERP Revelio F08 — segundo feitiço: título, 3 segundos, DOM + SVG.
+   CSS isolado, importado só na primeira ativação. Não afeta Sobre o sistema. */
+#cr-chrome .erp-f08-title-word,
+.sidebar .brand-title .erp-f08-title-word {
+  -webkit-appearance:none; appearance:none; display:inline-block; position:relative;
+  vertical-align:baseline; border:0; border-radius:2px; padding:0; margin:0;
+  background:transparent; color:inherit; font:inherit; font-kerning:inherit;
+  font-weight:inherit; letter-spacing:inherit; line-height:inherit; text-transform:inherit;
+  text-shadow:inherit; text-decoration:none; white-space:nowrap; cursor:pointer;
+  text-align:left; isolation:isolate; touch-action:manipulation;
+}
+#cr-chrome .erp-f08-title-word:focus-visible,
+.sidebar .brand-title .erp-f08-title-word:focus-visible {
+  outline:2px solid var(--cr-accent,#8c72cd); outline-offset:4px;
+}
+.erp-f08-title-word.erp-f08-title-active {
+  color:var(--f08-word-ink,currentColor)!important;
+  text-shadow:0 0 5px var(--f08-neon-soft),0 0 11px var(--f08-neon-faint)!important;
+}
+.erp-f08-title-word .erp-f08-title-sweep {
+  display:block; position:absolute; inset:-2px -3px; border-radius:4px;
+  background:linear-gradient(100deg,transparent 20%,var(--f08-neon-faint) 35%,var(--f08-neon-soft) 50%,transparent 64%);
+  pointer-events:none; opacity:0; transform:translateX(-88%); mix-blend-mode:screen;
+}
+.erp-f08-symbol-field {
+  position:fixed; inset:0; z-index:2147480000; pointer-events:none;
+  overflow:hidden; contain:layout style; background:transparent!important;
+  user-select:none; -webkit-user-select:none;
+}
+.erp-f08-symbol-slot {
+  --f08-size:30px; position:absolute; width:var(--f08-size); height:var(--f08-size);
+  left:0; top:0; transform:translate(-50%,-50%);
+  pointer-events:none; overflow:visible; opacity:0;
+}
+.erp-f08-symbol-slot svg { display:block; width:100%; height:100%; overflow:visible;
+  fill:none!important; color:var(--f08-symbol-ink,#9874cc);
+  stroke:currentColor; stroke-width:1.55; stroke-linecap:round; stroke-linejoin:round;
+  pointer-events:none; filter:drop-shadow(0 0 2px var(--f08-neon-soft));
+}
+.erp-f08-symbol-slot svg * { vector-effect:non-scaling-stroke; fill:none!important; }
+.erp-f08-symbol-slot[data-symbol="plataforma"] svg text {
+  fill:none!important; stroke:currentColor; stroke-width:.55px; stroke-linecap:round;
+  stroke-linejoin:round; font-family:Georgia,serif; font-weight:700;
+}
+@media (prefers-reduced-motion:reduce){.erp-f08-symbol-field{display:none!important}}

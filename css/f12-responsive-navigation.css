@@ -1,0 +1,115 @@
+/* ERP Revelio F12 REV02 — restauração da lateral fixa/aderente da F11.
+ * Revisão solicitada pela direção: a lateral não deve acompanhar a rolagem
+ * do conteúdo e tampouco ter uma barra de rolagem própria. O layout de
+ * navegação SUPERIOR e o layout móvel continuam sob o contrato da F11.
+ * Somente a apresentação vertical da lateral é compactada em telas curtas;
+ * nenhum atalho, mascote interativo ou estado da nuvem é removido. */
+@media (min-width:931px){
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar{
+   position:sticky!important;
+   top:59px!important;
+   bottom:auto!important;
+   height:calc(100dvh - 59px)!important;
+   max-height:calc(100dvh - 59px)!important;
+   align-self:start!important;
+   /* Não criar um segundo contexto de rolagem dentro do menu. */
+   overflow:visible!important;
+ }
+}
+
+/* As seis opções permanecem verticais e com o tamanho original quando cabem.
+ * Redução progressiva somente quando a altura é de fato restrita. */
+@media (min-width:931px) and (max-height:740px){
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar{
+   padding:7px 8px 20px!important;
+ }
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar #cr-mascot-house{
+   min-height:0!important;height:auto!important;
+   margin:0 0 5px!important;padding:2px 3px 3px!important;
+ }
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar #cr-mascot-house :is(.unicorn-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,.bunny-mascot,.junina-mascot,.pumpkin-mascot,.eye-mascot,.cyber-mascot,.glassy-mascot){
+   box-sizing:border-box!important;
+   width:min(98px,100%)!important;height:96px!important;
+   min-height:0!important;max-height:96px!important;
+ }
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar #cr-mascot-house .cr-mascot-caption{
+   margin:0!important;padding:0!important;font-size:9px!important;line-height:12px!important;
+ }
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar .side-section{
+   padding:2px 8px 3px!important;margin:0!important;line-height:12px!important;
+ }
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar>.nav{
+   flex:0 0 auto!important;min-height:0!important;
+   padding:4px!important;gap:2px!important;
+ }
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar>.nav>.nav-btn{
+   box-sizing:border-box!important;min-height:34px!important;height:34px!important;
+   margin:0!important;padding:5px 7px!important;line-height:1.2!important;
+ }
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar>.side-card{
+   flex:0 0 auto!important;margin-top:auto!important;
+   padding:7px 8px!important;min-height:0!important;
+ }
+}
+
+/* Quando a altura mal comporta seis linhas de botões, muda-se apenas
+ * a organização DOS MESMOS botões para 2 colunas e 3 linhas. Cada alvo
+ * mantém >=48px de altura, sem esconder textos ou criar um scroller. */
+@media (min-width:931px) and (max-height:560px){
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar #cr-mascot-house{
+   margin:0 0 2px!important;padding:0 2px 1px!important;
+ }
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar #cr-mascot-house :is(.unicorn-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,.bunny-mascot,.junina-mascot,.pumpkin-mascot,.eye-mascot,.cyber-mascot,.glassy-mascot){
+   height:73px!important;max-height:73px!important;width:min(78px,100%)!important;
+ }
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar #cr-mascot-house .cr-mascot-caption{display:none!important}
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar .side-section{display:none!important}
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar>.nav{
+   display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+   grid-auto-rows:minmax(49px,auto)!important;
+   align-content:start!important;gap:3px!important;padding:3px!important;
+ }
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar>.nav>.nav-btn{
+   box-sizing:border-box!important;width:100%!important;min-width:0!important;
+   height:auto!important;min-height:49px!important;
+   padding:4px 2px!important;margin:0!important;
+   flex-direction:column!important;justify-content:center!important;
+   align-items:center!important;gap:2px!important;font-size:10px!important;text-align:center!important;
+ }
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar>.nav>.nav-btn>.nav-icon{
+   width:auto!important;flex:0 0 auto!important;font-size:16px!important;line-height:17px!important;
+ }
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar>.nav>.nav-btn>span:not(.nav-icon){
+   display:block!important;font-size:10px!important;line-height:12px!important;
+   white-space:normal!important;overflow-wrap:anywhere!important;text-align:center!important;
+ }
+ html[data-erp-theme]:not([data-erp-layout="top"]) body .app>.sidebar>.side-card{
+   padding:5px 7px!important;
+ }
+}
+
+/* Fallback medido pelo JS caso um mascote ou fonte atípica ainda cause
+ * transbordamento em alturas acima do breakpoint. Não altera o layout normal. */
+@media (min-width:931px){
+ html[data-erp-f12-nav-tight="true"]:not([data-erp-layout="top"]) body .app>.sidebar #cr-mascot-house{
+   min-height:0!important;margin:0 0 2px!important;padding:0 2px 1px!important;
+ }
+ html[data-erp-f12-nav-tight="true"]:not([data-erp-layout="top"]) body .app>.sidebar #cr-mascot-house :is(.unicorn-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,.bunny-mascot,.junina-mascot,.pumpkin-mascot,.eye-mascot,.cyber-mascot,.glassy-mascot){
+   height:73px!important;max-height:73px!important;width:min(78px,100%)!important;
+ }
+ html[data-erp-f12-nav-tight="true"]:not([data-erp-layout="top"]) body .app>.sidebar #cr-mascot-house .cr-mascot-caption,
+ html[data-erp-f12-nav-tight="true"]:not([data-erp-layout="top"]) body .app>.sidebar .side-section{display:none!important}
+ html[data-erp-f12-nav-tight="true"]:not([data-erp-layout="top"]) body .app>.sidebar>.nav{
+   display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+   grid-auto-rows:minmax(49px,auto)!important;gap:3px!important;padding:3px!important;
+ }
+ html[data-erp-f12-nav-tight="true"]:not([data-erp-layout="top"]) body .app>.sidebar>.nav>.nav-btn{
+   display:flex!important;width:100%!important;min-width:0!important;
+   height:auto!important;min-height:49px!important;
+   padding:4px 2px!important;flex-direction:column!important;
+   justify-content:center!important;align-items:center!important;gap:2px!important;text-align:center!important;
+ }
+ html[data-erp-f12-nav-tight="true"]:not([data-erp-layout="top"]) body .app>.sidebar>.nav>.nav-btn>.nav-icon{width:auto!important;flex:0 0 auto!important;font-size:16px!important;line-height:17px!important}
+ html[data-erp-f12-nav-tight="true"]:not([data-erp-layout="top"]) body .app>.sidebar>.nav>.nav-btn>span:not(.nav-icon){font-size:10px!important;line-height:12px!important;white-space:normal!important;overflow-wrap:anywhere!important;text-align:center!important}
+ html[data-erp-f12-nav-tight="true"]:not([data-erp-layout="top"]) body .app>.sidebar>.side-card{padding:5px 7px!important}
+}

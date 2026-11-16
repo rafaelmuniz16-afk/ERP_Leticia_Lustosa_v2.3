@@ -1,0 +1,92 @@
+[
+  {
+    "id": "A0",
+    "original": "Revelio — animação do título.mp3",
+    "stored": "assets/audio/f11/f11_title_revelio.mp3",
+    "offsetMs": 0,
+    "targetDurationMs": 3000,
+    "gain": 0.48,
+    "sha256": "513e785c1acf281db64e329f6c829f4978b0e3ddd54b51036aa3ce5774c23df9",
+    "size": 73197
+  },
+  {
+    "id": "B1",
+    "original": "Sobre o sistema — ambiente mágico.mp3",
+    "stored": "assets/audio/f11/f11_about_ambiente.mp3",
+    "offsetMs": 0,
+    "targetDurationMs": 10000,
+    "gain": 0.4,
+    "sha256": "993a2a4c723ce30d64a6b310f38e9d178573430e205e597e7616a8fb65b6c163",
+    "size": 241389
+  },
+  {
+    "id": "B2",
+    "original": "Anéis mágicos e runas.mp3",
+    "stored": "assets/audio/f11/f11_aneis_runas.mp3",
+    "offsetMs": 1150,
+    "targetDurationMs": 8720,
+    "gain": 0.39,
+    "sha256": "3b51b498a74203745baa5dcb45ee99b5775ed30880d28075a64845a44eb4c4df",
+    "size": 210861
+  },
+  {
+    "id": "B3",
+    "original": "Rastros dourados.mp3",
+    "stored": "assets/audio/f11/f11_rastros_dourados.mp3",
+    "offsetMs": 2150,
+    "targetDurationMs": 3900,
+    "gain": 0.3,
+    "sha256": "388ddfc3094c33a11e3b96d53d3d7fb8e33fa51a20d85522f1eea58ddf3cd043",
+    "size": 94509
+  },
+  {
+    "id": "B4",
+    "original": "Transformação das sete letras REVELIO.mp3",
+    "stored": "assets/audio/f11/f11_sete_letras.mp3",
+    "offsetMs": 2280,
+    "targetDurationMs": 3000,
+    "gain": 0.095,
+    "sha256": "aa6afb51d9519a98061a66b566911956c28f5d325b8eba46232c75f7039da58b",
+    "size": 73197
+  },
+  {
+    "id": "B8",
+    "original": "Partículas mágicas.mp3",
+    "stored": "assets/audio/f11/f11_particulas.mp3",
+    "offsetMs": 2600,
+    "targetDurationMs": 7400,
+    "gain": 0.36,
+    "sha256": "e583d26d74b4092fac14f54a1f192297afbb16ec0a107b010b0b237b0620bac4",
+    "size": 179181
+  },
+  {
+    "id": "B6",
+    "original": "Cervo luminoso.mp3",
+    "stored": "assets/audio/f11/f11_cervo.mp3",
+    "offsetMs": 3340,
+    "targetDurationMs": 5410,
+    "gain": 0.55,
+    "sha256": "077f7c51ce7eed3b0b4d5f60f43165ab8ebba5ef9c3b2960bd227fd1860b20c1",
+    "size": 130797
+  },
+  {
+    "id": "B5",
+    "original": "Pomo de Ouro — som exclusivo.mp3",
+    "stored": "assets/audio/f11/f11_pomo_voador.mp3",
+    "offsetMs": 3950,
+    "targetDurationMs": 6000,
+    "gain": 1.68,
+    "sha256": "498bae1196cbc94b4482c07aa1f9c58e65fd9842177116f6b5824eb3e795b581",
+    "size": 145197
+  },
+  {
+    "id": "B7",
+    "original": "Halo mágico final.mp3",
+    "stored": "assets/audio/f11/f11_halo_final.mp3",
+    "offsetMs": 6900,
+    "targetDurationMs": 3060,
+    "gain": 0.48,
+    "sha256": "29708a106aa1cfc335d79fd4221407e71d79879eaa43a4b33b49b5debc0ac28d",
+    "size": 74349
+  }
+]

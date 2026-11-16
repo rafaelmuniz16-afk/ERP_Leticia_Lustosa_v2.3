@@ -1,0 +1,241 @@
+/* ERP v2.3 - Revelio | Fase 5 - Íris | SOMENTE APRESENTAÇÃO.
+   Respeita todos os IDs, ouvintes, dados, métodos, enums, temas e scripts operacionais. */
+:root{--revelio-accent:var(--cw-accent,var(--cr-accent,var(--primary,#aa78df)));--revelio-ink:var(--cw-ink,var(--cr-ink,var(--text,#252539)));--revelio-muted:var(--cw-muted,var(--cr-muted,var(--muted,#77758c)));--revelio-paper:var(--cw-surface,var(--cr-panel,var(--surface,#fff)));--revelio-soft:var(--cw-soft,var(--cr-panel2,var(--surface-2,#f8f6fc)));--revelio-line:var(--cw-line,var(--cr-line,var(--line,#e5deec)));}
+/* A seleção temporal conserva integralmente id/value/change da F02. */
+.topbar .top-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px;min-width:0;order:2}
+.topbar>.top-actions #btnAiTop{order:1}
+.topbar>.top-actions .erp23-year-control{order:2;display:flex;flex:0 0 auto;min-width:0;width:auto;gap:0;margin:0;align-items:center;position:relative;font-size:0}
+.topbar>.top-actions .erp23-year-control::after{content:'▾';pointer-events:none;position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--revelio-muted);font:800 11px/1 'DM Sans',sans-serif}
+.topbar>.top-actions .erp23-year-control select{box-sizing:border-box;-webkit-appearance:none;appearance:none;width:120px;min-width:110px;max-width:155px;height:36px;min-height:36px;margin:0;padding:0 29px 0 12px;border:1px solid var(--revelio-line);border-radius:9px;background:var(--revelio-paper);color:var(--revelio-ink);font:750 11px/1.2 'DM Sans',sans-serif;cursor:pointer;box-shadow:0 4px 13px color-mix(in srgb,var(--revelio-accent) 5%,transparent)}
+.topbar>.top-actions .erp23-year-control select:focus-visible{outline:2px solid var(--revelio-accent);outline-offset:2px}
+.topbar>.top-actions #erp-open-settings-top{order:4}.topbar>.top-actions #btnRefresh{order:5}
+html[data-erp-theme] .topbar>#cr-theme-picker{order:3!important;margin-left:0!important;align-self:center}
+.topbar>#cr-theme-picker select{height:36px}
+.topbar>.cr-month-meta-bar{order:10}
+/* Ano e Tema com a mesma linguagem de controles por tema; nunca interfere nas opções. */
+html[data-erp-theme] .topbar>.top-actions .erp23-year-control select{background:var(--cr-panel,var(--revelio-paper))!important;color:var(--cr-ink,var(--revelio-ink))!important;border-color:var(--cr-line,var(--revelio-line))!important}
+html[data-erp-theme='glassy-crm'] .topbar>.top-actions .erp23-year-control select{background:color-mix(in srgb,var(--cr-panel,var(--revelio-paper)) 88%,transparent)!important;backdrop-filter:blur(10px)}
+/* O módulo original continua em JS e recebe atualizações. Apenas a terceira linha é oculta. */
+#aiDrawer .ai-brand #aiMemorySource{display:none!important}
+/* Histórico 2026: o botão foi movido, mas o painel, a pesquisa e a tabela são os mesmos da F02. */
+.revelio-history-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;margin:12px 0 0;min-width:0}
+.revelio-history-actions #btnOpenHistoryInline{margin:0!important}
+.revelio-history-2026-link{display:inline-flex;align-items:center;gap:6px;min-height:33px;border:1px solid var(--revelio-line);border-radius:9px;background:color-mix(in srgb,var(--revelio-accent) 7%,var(--revelio-paper));color:var(--revelio-ink);font:750 11px/1.2 'DM Sans',sans-serif;cursor:pointer;padding:7px 11px;transition:background-color .16s,border-color .16s}
+.revelio-history-2026-link[hidden]{display:none!important}
+.revelio-history-2026-link:hover{border-color:var(--revelio-accent);background:color-mix(in srgb,var(--revelio-accent) 13%,var(--revelio-paper))}
+.revelio-history-2026-link:focus-visible{outline:2px solid var(--revelio-accent);outline-offset:2px}
+#revelioArchive2026Dialog{box-sizing:border-box;width:min(1080px,calc(100% - 24px));max-width:none;max-height:calc(100dvh - 24px);margin:auto;padding:0;overflow:hidden;flex-direction:column;border:1px solid var(--revelio-line);border-radius:20px;background:var(--revelio-paper);color:var(--revelio-ink);box-shadow:0 30px 85px rgba(9,12,29,.28);font-family:'DM Sans',sans-serif}
+#revelioArchive2026Dialog[open]{display:flex}
+#revelioArchive2026Dialog:not([open]){display:none!important}
+#revelioArchive2026Dialog::backdrop{background:rgba(12,17,34,.58);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+#revelioArchive2026Dialog *{box-sizing:border-box}
+#revelioArchive2026Dialog :focus-visible{outline:2px solid var(--revelio-accent);outline-offset:3px}
+.revelio-archive-header{display:flex;align-items:center;gap:14px;padding:21px 24px;background:linear-gradient(110deg,color-mix(in srgb,var(--revelio-accent) 11%,var(--revelio-paper)),var(--revelio-paper) 75%);border-bottom:1px solid var(--revelio-line)}
+.revelio-archive-icon{display:grid;place-items:center;flex:0 0 43px;width:43px;height:43px;border:1px solid var(--revelio-line);border-radius:14px;background:var(--revelio-soft);color:var(--revelio-accent);font-size:22px}
+.revelio-archive-header>div{flex:1;min-width:0}.revelio-archive-eyebrow{font:850 10px/1.4 'DM Sans',sans-serif;letter-spacing:.10em;color:var(--revelio-accent)}
+.revelio-archive-header h2{font:850 22px/1.2 'Manrope','DM Sans',sans-serif;letter-spacing:-.03em;margin:4px 0 6px;color:var(--revelio-ink)}
+.revelio-archive-header p{font:500 11px/1.6 'DM Sans',sans-serif;margin:0;color:var(--revelio-muted)}
+.revelio-archive-close{flex:0 0 36px;width:36px;height:36px;border:1px solid var(--revelio-line);border-radius:10px;background:var(--revelio-soft);color:var(--revelio-ink);font:600 23px/1 'DM Sans',sans-serif;cursor:pointer}
+.revelio-archive-content{min-height:0;overflow:auto;flex:1;padding:20px 23px 22px;scrollbar-gutter:stable}
+#revelioArchive2026Dialog #erp23HistoricalPanel{margin:0!important;padding:20px!important;border:1px solid var(--revelio-line)!important;border-radius:16px!important;background:var(--revelio-soft)!important;color:var(--revelio-ink)!important}
+#revelioArchive2026Dialog .erp23-historical-heading{gap:15px;align-items:center;margin-bottom:15px}
+#revelioArchive2026Dialog .erp23-historical-heading strong{font:800 15px/1.4 'Manrope',sans-serif;color:var(--revelio-ink)}
+#revelioArchive2026Dialog .erp23-historical-heading p{font-size:11px;line-height:1.7;color:var(--revelio-muted);max-width:75ch;margin:7px 0 0}
+#revelioArchive2026Dialog #erp23HistoricalLoad{min-height:36px;padding:8px 13px;background:color-mix(in srgb,var(--revelio-accent) 15%,var(--revelio-paper));border:1px solid var(--revelio-line);border-radius:10px;color:var(--revelio-ink);font-weight:800;cursor:pointer}
+#revelioArchive2026Dialog #erp23HistoricalPanel label{display:flex;flex-direction:column;align-items:stretch;gap:7px;margin:13px 0;font-weight:700;color:var(--revelio-ink)}
+#revelioArchive2026Dialog #erp23HistoricalSearch{width:100%;max-width:none;min-height:38px;font:500 12px 'DM Sans',sans-serif;padding:10px 12px;border:1px solid var(--revelio-line);border-radius:10px;background:var(--revelio-paper);color:var(--revelio-ink)}
+#revelioArchive2026Dialog #erp23HistoricalStatus{margin:12px 0;font-size:11px;color:var(--revelio-muted);line-height:1.6}
+#revelioArchive2026Dialog .table-wrap{max-height:min(46vh,420px);overflow:auto;border:1px solid var(--revelio-line);border-radius:11px;background:var(--revelio-paper)}
+#revelioArchive2026Dialog .table{width:100%;min-width:720px;border-collapse:collapse;font:500 11px/1.5 'DM Sans',sans-serif}
+#revelioArchive2026Dialog .table th{position:sticky;top:0;z-index:1;white-space:nowrap;padding:13px 10px;background:var(--revelio-soft);border-bottom:1px solid var(--revelio-line);color:var(--revelio-muted);font:800 10px/1.3 'DM Sans',sans-serif;text-align:left}
+#revelioArchive2026Dialog .table td{padding:12px 10px;color:var(--revelio-ink);background:var(--revelio-paper);border-bottom:1px solid var(--revelio-line);overflow-wrap:anywhere}
+.revelio-archive-footer{padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid var(--revelio-line);color:var(--revelio-muted);font:600 11px/1.4 'DM Sans',sans-serif}
+.revelio-archive-footer button{min-height:35px;border-radius:10px;border:1px solid var(--revelio-line);background:var(--revelio-soft);color:var(--revelio-ink);padding:8px 13px;cursor:pointer}
+/* Sidebar: fixar o rodapé de conectividade à base do viewport, inclusive após rolar. */
+/* Desktop: a coluna lateral usa o seu próprio fluxo flex/sticky, sem margens de compensação por tema.
+   Preserva a altura/top definidos nos layouts Cinematic de cada universo. */
+@media(min-width:931px){
+ html[data-erp-theme] .app>.sidebar{display:flex!important;flex-direction:column!important;min-height:0!important;box-sizing:border-box!important}
+ html[data-erp-theme] .app>.sidebar>.nav,
+ html[data-erp-theme] .app>.sidebar>.side-card{box-sizing:border-box;width:100%!important;max-width:100%;align-self:stretch!important;margin-inline:0!important}
+ html[data-erp-theme] .app>.sidebar>.side-card{flex:0 0 auto;margin-top:auto!important;margin-bottom:0!important}
+}
+
+/* Modo de escuta Aurora: ondas puramente cosméticas, ativadas pela classe original .active. */
+#auroraVoiceModal.active .aurora-voice-card{color:var(--revelio-ink);background:var(--revelio-paper);border:1px solid var(--revelio-line);border-radius:23px}
+#auroraVoiceModal .aurora-voice-title{color:var(--revelio-ink)}
+#auroraVoiceModal .aurora-voice-transcript{color:var(--revelio-muted)}
+#auroraVoiceModal .aurora-voice-orb{width:132px;height:132px;margin:14px 0 22px;isolation:isolate}
+#auroraVoiceModal .aurora-voice-core{z-index:4;width:70px;height:70px;background:linear-gradient(135deg,var(--revelio-accent),color-mix(in srgb,var(--revelio-accent) 58%,#f5b7e8));box-shadow:0 0 28px color-mix(in srgb,var(--revelio-accent) 30%,transparent)}
+#auroraVoiceModal .aurora-voice-pulse{z-index:1;background:color-mix(in srgb,var(--revelio-accent) 20%,transparent);animation-duration:2s}
+#auroraVoiceModal .revelio-voice-wave{display:block;position:absolute;inset:9px;border-radius:50%;border:2px solid color-mix(in srgb,var(--revelio-accent) 52%,transparent);pointer-events:none;opacity:0;transform:scale(.63);z-index:2}
+#auroraVoiceModal.active .revelio-voice-wave-one{animation:revelioWave 2.7s ease-out infinite}
+#auroraVoiceModal.active .revelio-voice-wave-two{animation:revelioWave 2.7s ease-out -.9s infinite}
+#auroraVoiceModal.active .revelio-voice-wave-three{animation:revelioWave 2.7s ease-out -1.8s infinite}
+#auroraVoiceModal .revelio-voice-wave-two{border-style:dashed;border-width:1px;inset:3px}
+#auroraVoiceModal .revelio-voice-wave-three{border-width:3px;inset:17px}
+@keyframes revelioWave{0%{transform:scale(.6);opacity:.7}50%{opacity:.34}100%{transform:scale(1.45);opacity:0}}
+/* Modernização visual delimitada aos quatro dialogs; preserva estrutura, IDs e fluxos. */
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog,#auroraAchievementsDialog){--revelio-modal-accent:var(--cw-accent,var(--primary,#b48be6));border:1px solid var(--revelio-line)!important;border-radius:22px!important;box-shadow:0 24px 75px rgba(10,15,28,.26)!important;color:var(--revelio-ink)!important;background:var(--revelio-paper)!important}
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog,#auroraAchievementsDialog)::backdrop{background:rgba(13,18,34,.56);backdrop-filter:blur(4px)}
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog,#auroraAchievementsDialog) :is(.wc-header,.summary-header,.export-header,.aurora-catalog-header){background:color-mix(in srgb,var(--revelio-modal-accent) 5%,var(--revelio-paper))!important;border-bottom:1px solid var(--revelio-line)!important}
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog,#auroraAchievementsDialog) :is(h2){letter-spacing:-.025em;font-family:var(--revelio-modal-title,'Manrope',sans-serif)!important;color:var(--revelio-ink)!important}
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog,#auroraAchievementsDialog) :is(h3){font-family:var(--revelio-modal-title,'Manrope',sans-serif)!important;color:var(--revelio-ink)!important}
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog,#auroraAchievementsDialog) :is(button,select,input,textarea){accent-color:var(--revelio-modal-accent)}
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog,#auroraAchievementsDialog) :is(button,select,input,textarea):focus-visible{outline:2px solid var(--revelio-modal-accent)!important;outline-offset:3px!important}
+/* Famílias tipográficas próprias de cada universo, herdadas do sistema Cinematic.
+   Nove temas já expõem --motion-type-title/body. Cyberpunk e Glass têm famílias próprias. */
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog){
+ --revelio-modal-title:var(--motion-type-title,'Manrope','DM Sans',sans-serif);
+ --revelio-modal-body:var(--motion-type-body,'DM Sans',sans-serif);
+ font-family:var(--revelio-modal-body)!important;
+}
+html[data-erp-theme="cyberpunk"] :is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog){
+ --revelio-modal-title:'Orbitron','Space Grotesk','DM Sans',sans-serif;
+ --revelio-modal-body:'Space Grotesk','Rajdhani','DM Sans',sans-serif;
+}
+html[data-erp-theme="glassy-crm"] :is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog){
+ --revelio-modal-title:'Plus Jakarta Sans','Manrope',sans-serif;
+ --revelio-modal-body:'Plus Jakarta Sans','DM Sans',sans-serif;
+}
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog) :is(button,select,input,textarea,summary,legend,label,th,td,p,small,span){font-family:var(--revelio-modal-body)!important}
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog) :is(h2,h3){font-family:var(--revelio-modal-title)!important}
+/* Textos de apoio não devem receber fontes ornamentais longas; títulos usam fonte display. */
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog) :is(.wc-eyebrow,.summary-eyebrow,.export-eyebrow){font-family:var(--revelio-modal-body)!important}
+
+/* Cores base da seleção: o tom é calculado com a superfície do universo, NUNCA branco puro.
+   Estados ativos, hover e foco reaproveitam os tokens já existentes do tema. */
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog){
+ --revelio-filter-rest:var(--revelio-paper);
+ --revelio-filter-active:color-mix(in srgb,var(--revelio-modal-accent) 14%,var(--revelio-soft));
+ --revelio-filter-hover:color-mix(in srgb,var(--revelio-modal-accent) 8%,var(--revelio-soft));
+ --revelio-filter-border:color-mix(in srgb,var(--revelio-modal-accent) 35%,var(--revelio-line));
+}
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog) :is(.wc-toolbar button,.wc-pagination button,.summary-actions button,.export-toolbar button,.export-footer button){
+ background:var(--revelio-filter-rest);border-color:var(--revelio-line);color:var(--revelio-ink)
+}
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog) :is(.wc-toolbar button,.wc-pagination button,.summary-actions button,.export-toolbar button,.export-footer button):hover:not(:disabled){
+ background:var(--revelio-filter-hover);border-color:var(--revelio-filter-border);color:var(--revelio-ink)
+}
+:is(#erpWorkDialog,#erpSummaryDialog,#erpExportDialog) :is(button,select,input,textarea):focus-visible{
+ outline:2px solid var(--revelio-modal-accent)!important;outline-offset:2px!important
+}
+#erpWorkDialog .wc-toolbar button[aria-pressed="true"],
+#erpWorkDialog .wc-toolbar button.active,
+#erpExportDialog .export-chip[aria-pressed="true"]{
+ background:var(--revelio-filter-active)!important;border-color:var(--revelio-filter-border)!important
+}
+/* Central de Trabalho: navegação mais clara, cartões premium e separação sem mudar filtros. */
+#erpWorkDialog .wc-body>section{border:1px solid var(--revelio-line);border-radius:16px;padding:18px;background:var(--revelio-paper);box-shadow:0 5px 15px rgba(13,20,41,.035)}
+#erpWorkDialog .wc-body{background:var(--revelio-soft)}
+#erpWorkDialog .wc-card{border:1px solid var(--revelio-line);border-radius:14px!important;background:color-mix(in srgb,var(--revelio-modal-accent) 5%,var(--revelio-paper));box-shadow:0 5px 14px rgba(13,20,41,.05);transition:border-color .15s,transform .15s}
+#erpWorkDialog .wc-card:hover{border-color:var(--revelio-modal-accent);transform:translateY(-1px)}
+#erpWorkDialog .wc-filter-details{background:var(--revelio-soft);border-color:var(--revelio-line);border-radius:12px}
+#erpWorkDialog .wc-toolbar button,#erpWorkDialog .wc-pagination button{border-radius:10px}
+#erpWorkDialog .wc-table-scroll{border-radius:12px;box-shadow:0 2px 12px rgba(12,20,38,.04)}
+#erpWorkDialog .wc-footer{background:var(--revelio-paper)}
+/* Copiar resumo: controles, modo e prévia preservados; harmonização de acabamento. */
+#erpSummaryDialog .summary-body{background:var(--revelio-soft)}
+#erpSummaryDialog .summary-body :is(.summary-controls,.summary-dates,.summary-modes,.summary-preview){margin-top:5px}
+#erpSummaryDialog .summary-segmented{border-radius:13px;padding:5px;background:var(--revelio-paper)}
+#erpSummaryDialog .summary-segmented span{border-radius:9px;min-height:39px}
+#erpSummaryDialog .summary-preview-heading{border-top:1px solid var(--revelio-line);padding-top:13px}
+#erpSummaryDialog textarea{border-radius:12px!important;line-height:1.7}
+#erpSummaryDialog .summary-footer{background:var(--revelio-paper)}
+/* Exportar: cartões de filtro, seleção, formato e resultados semanticamente preservados. */
+#erpExportDialog .export-body{background:var(--revelio-soft)}
+#erpExportDialog .export-selection{border-radius:15px!important;background:var(--revelio-paper);border-color:var(--revelio-line);box-shadow:0 5px 13px rgba(12,20,38,.04)}
+#erpExportDialog .export-section{border-radius:14px;background:var(--revelio-paper);border-color:var(--revelio-line);box-shadow:0 4px 12px rgba(12,20,38,.03)}
+#erpExportDialog .export-format{border-radius:15px;background:var(--revelio-paper);border-color:var(--revelio-line)}
+#erpExportDialog .export-preview{padding:16px;border:1px solid var(--revelio-line);border-radius:15px;background:var(--revelio-paper)}
+#erpExportDialog .export-toolbar button{border-radius:10px}
+#erpExportDialog .export-footer{background:var(--revelio-paper)}
+
+/* Ajustes finais Fase 5A: alinhamentos, identidade visual comum e polimento pré-QA. */
+.revelio-history-actions{gap:8px 14px;align-items:center}
+/* Ambos são links de ação de mesma altura, sem offsets de margem diferentes. */
+.revelio-history-actions :is(#btnOpenHistoryInline,.revelio-history-2026-link){
+ box-sizing:border-box;display:inline-flex;align-items:center;justify-content:flex-start;gap:5px;
+ min-height:36px;max-width:100%;margin:0!important;padding:7px 2px!important;
+ border:0!important;background:transparent!important;box-shadow:none!important;border-radius:0!important;
+ color:color-mix(in srgb,var(--revelio-accent) 78%,var(--revelio-ink))!important;
+ font-family:var(--motion-type-body,'DM Sans',sans-serif)!important;font-size:11px!important;
+ font-weight:750!important;line-height:1.4!important;letter-spacing:.01em;
+ text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--revelio-accent) 65%,transparent);text-underline-offset:3px;
+ cursor:pointer;white-space:normal;text-align:left
+}
+.revelio-history-actions .revelio-history-2026-link:hover,.revelio-history-actions #btnOpenHistoryInline:hover{color:var(--revelio-accent)!important;background:transparent!important;text-decoration-color:currentColor}
+.revelio-history-actions .revelio-history-2026-link:focus-visible,.revelio-history-actions #btnOpenHistoryInline:focus-visible{outline:2px solid var(--revelio-accent);outline-offset:3px;border-radius:6px!important}
+
+#erpSummaryDialog .summary-body{padding:20px 22px 22px}
+#erpSummaryDialog .summary-modes,#erpSummaryDialog .summary-controls,#erpSummaryDialog #erpSummaryDates,#erpSummaryDialog .summary-preview-heading,#erpSummaryDialog .summary-confirm{border:1px solid var(--revelio-line);border-radius:16px;background:var(--revelio-paper);box-shadow:0 5px 14px rgba(13,20,41,.035)}
+#erpSummaryDialog .summary-modes{padding:16px;margin-bottom:14px}
+#erpSummaryDialog .summary-controls,#erpSummaryDialog #erpSummaryDates{padding:16px;margin-bottom:14px}
+#erpSummaryDialog .summary-controls{align-items:end}
+#erpSummaryDialog #erpSummaryDates[hidden]{display:none!important}
+#erpSummaryDialog .summary-preview-heading{padding:14px 16px;margin:18px 0 0;border-bottom:none;border-radius:16px 16px 0 0}
+#erpSummaryDialog #erpSummaryPreview{border-top-left-radius:0!important;border-top-right-radius:0!important;background:var(--revelio-paper);box-shadow:0 5px 14px rgba(13,20,41,.03)}
+#erpSummaryDialog #erpSummaryPreviewHelp,#erpSummaryDialog #erpSummaryAIHelp,#erpSummaryDialog #erpSummaryScope,#erpSummaryDialog #erpSummaryHandoff{padding-inline:2px}
+#erpSummaryDialog .summary-segmented{background:var(--revelio-soft);border-color:var(--revelio-line)}
+#erpSummaryDialog .summary-controls :is(select,input),#erpSummaryDialog .summary-dates :is(input,select){border-color:var(--revelio-line)}
+#erpSummaryDialog .summary-segmented input:checked + span{background:var(--revelio-filter-active);border-color:color-mix(in srgb,var(--revelio-modal-accent) 55%,var(--revelio-line));box-shadow:0 6px 14px rgba(12,18,32,.05)}
+#erpSummaryDialog .summary-primary,#erpSummaryDialog #erpSummaryGenerate{background:var(--revelio-filter-active);border-color:color-mix(in srgb,var(--revelio-modal-accent) 60%,var(--revelio-line))}
+#erpSummaryDialog .summary-actions button{min-width:152px;border-radius:11px}
+
+#erpWorkDialog .wc-body>section{padding:20px}
+#erpWorkDialog .wc-section-heading{margin-bottom:14px}
+#erpWorkDialog .wc-conference-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:14px 16px;align-items:end;margin:16px 0 14px}
+#erpWorkDialog .wc-conference-controls>.wc-field{min-width:0;max-width:none;flex:none}
+#erpWorkDialog .wc-group-option{min-height:40px;align-self:end;padding:0 0 10px;white-space:nowrap}
+#erpWorkDialog .wc-field :is(select,input){min-height:40px;border-color:var(--revelio-line)}
+#erpWorkDialog .wc-field select{background:var(--revelio-paper)}
+
+#erpExportDialog .export-body{padding:16px 26px 26px}
+#erpExportDialog .export-toolbar{margin:14px 0 18px}
+#erpExportDialog .export-toolbar button,#erpExportDialog .export-footer button{min-height:38px;border-radius:11px}
+#erpExportDialog .export-selection{padding:16px}
+#erpExportDialog .export-section{overflow:hidden}
+#erpExportDialog .export-section>summary{padding:15px 16px;background:var(--revelio-soft)}
+#erpExportDialog .export-section[open]>summary{border-bottom:1px solid var(--revelio-line)}
+#erpExportDialog .export-section-content{display:grid;gap:14px;padding:0 16px 16px}
+#erpExportDialog .export-grid{align-items:start;margin-top:0}
+#erpExportDialog .export-field{padding:0}
+#erpExportDialog .export-field :is(select,input,textarea){background:var(--revelio-paper);border-color:var(--revelio-line)}
+#erpExportDialog .export-field select[multiple]{min-height:122px}
+#erpExportDialog .export-format{margin:20px 0 18px;padding:18px}
+#erpExportDialog .export-preview{padding:18px}
+#erpExportDialog .export-primary{background:var(--revelio-filter-active);border-color:color-mix(in srgb,var(--revelio-modal-accent) 60%,var(--revelio-line))}
+/* Período e datas: conservar ordem DOM e as duas .export-grid reais do export/view.js.
+   display:contents + grid-row explícita eram frágeis para controles ocultos. */
+#erpExportDialog .export-section:first-of-type .export-section-content{
+ display:grid;grid-template-columns:minmax(0,1fr);gap:14px;min-width:0;align-items:start
+}
+#erpExportDialog .export-section:first-of-type .export-section-content>.export-grid{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;
+ min-width:0;margin:0;align-items:start
+}
+#erpExportDialog .export-section:first-of-type .export-section-content>.export-grid[hidden]{display:none!important}
+#erpExportDialog .export-section:first-of-type .export-section-content .export-field{
+ min-width:0;max-width:100%;margin:0;align-self:start
+}
+#erpExportDialog .export-section:first-of-type .export-section-content .export-field :is(select,input){
+ box-sizing:border-box;max-width:100%;width:100%;min-width:0;min-height:40px
+}
+#erpExportDialog #ex-custom{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+#erpExportDialog #ex-custom[hidden]{display:none!important}
+#erpExportDialog .export-section:first-of-type .export-section-content>.export-hint{margin:0}
+
+/* Missões: organização de catálogo sem alterar 70 níveis, 5 missões ou a engine. */
+#auroraAchievementsDialog .aurora-catalog-body{background:var(--revelio-soft)}
+#auroraAchievementsDialog .aa-level-heading{padding:13px;border:1px solid var(--revelio-line);border-radius:13px;background:var(--revelio-paper)}
+#auroraAchievementsDialog .aa-navigation{background:var(--revelio-paper);border:1px solid var(--revelio-line);border-radius:13px;padding:12px}
+#auroraAchievementsDialog #aa-levels{padding:10px;border:1px solid var(--revelio-line);border-radius:13px;background:var(--revelio-paper)}
+#auroraAchievementsDialog #aa-levels button{border-radius:8px}
+#auroraAchievementsDialog .aa-mission{border-radius:12px!important;border-color:var(--revelio-line)!important;background:var(--revelio-paper)!important}
+#auroraAchievementsDialog .aa-source{line-height:1.65}
+@media(max-width:1100px){.topbar>.top-actions{gap:7px}.topbar>.top-actions .erp23-year-control select{width:100px;min-width:96px}}
+@media(max-width:850px){.topbar>.top-actions{width:auto;flex:1 1 auto;justify-content:flex-end}.topbar>.top-actions .erp23-year-control select{width:100px}.topbar>#cr-theme-picker{margin:0}.revelio-archive-header{padding:16px}.revelio-archive-content{padding:14px}.revelio-archive-footer{padding:12px 15px}}
+@media(max-width:960px){#erpWorkDialog .wc-conference-controls{grid-template-columns:repeat(2,minmax(0,1fr))}#erpWorkDialog .wc-group-option{grid-column:1 / -1;padding-bottom:0}}
+@media(max-width:720px){#erpExportDialog .export-section:first-of-type .export-section-content>.export-grid,#erpExportDialog #ex-custom{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.topbar>.top-actions{flex:1 1 100%!important;justify-content:flex-start!important}.topbar>.top-actions .erp23-year-control{width:auto!important}.topbar>.top-actions .erp23-year-control select{width:105px}.topbar>#cr-theme-picker{order:3}.topbar>#cr-theme-picker select{min-width:125px}.revelio-history-actions{align-items:stretch}.revelio-archive-header h2{font-size:17px}.revelio-archive-header{gap:9px}.revelio-archive-icon{display:none}.revelio-archive-content{padding:10px}.revelio-archive-footer span{font-size:10px}#revelioArchive2026Dialog #erp23HistoricalPanel{padding:12px!important}#revelioArchive2026Dialog .erp23-historical-heading{align-items:stretch}#revelioArchive2026Dialog #erp23HistoricalLoad{width:100%}#erpWorkDialog .wc-body>section{padding:12px}#erpWorkDialog .wc-conference-controls{grid-template-columns:minmax(0,1fr)}#erpWorkDialog .wc-group-option{white-space:normal;min-height:auto}#erpSummaryDialog .summary-body{padding:14px 16px 16px}#erpSummaryDialog .summary-modes,#erpSummaryDialog .summary-controls,#erpSummaryDialog #erpSummaryDates{padding:14px}#erpSummaryDialog .summary-actions button{min-width:0}#erpExportDialog .export-preview{padding:10px}#erpExportDialog .export-section-content{padding:0 12px 12px}}
+@media(prefers-reduced-motion:reduce){#auroraVoiceModal .revelio-voice-wave,#auroraVoiceModal .aurora-voice-pulse{animation:none!important}#erpWorkDialog .wc-card{transition:none!important;transform:none!important}}

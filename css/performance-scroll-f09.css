@@ -1,0 +1,57 @@
+/* ERP Revelio F09 | Atlas-Geral | Correção experimental PERF-F09-001 (14/11/2026).
+ * Reduzir os blur de composição das seis áreas relatadas, em TODOS os temas,
+ * exclusivamente quando o Modo Desempenho está ATIVADO.
+ * Estratégia reversível: folha independente, carregada APÓS identidade F07.
+ * Não mexer em filter: efeitos de SVG/cenas F08/Secret Memories.
+ * Não alterar cores, sombras, gradientes, opacidade, dimensionamento ou eventos.
+ * Atenção: retirar backdrop-filter muda intencionalmente o visual no perfil leve.
+ */
+
+/* Janela/painel e conteúdo rolante. A inclusão dos descendentes cobre cartões
+ * internos (ex.: .erp-f07-department 8px no tema Glass), não tratados na E04.
+ * O filtro de cenário NÃO é desativado globalmente sobre o documento.
+ */
+html[data-erp-performance="true"][data-erp-theme]
+  :is(#erp-settings,#erp-f07-about-dialog,#historico,
+      #erpSummaryDialog,#erpExportDialog,#erpWorkDialog),
+html[data-erp-performance="true"][data-erp-theme]
+  :is(#erp-settings,#erp-f07-about-dialog,#historico,
+      #erpSummaryDialog,#erpExportDialog,#erpWorkDialog)
+  :not(:is(.erp-f08-stage,.erp-f08-stage *,
+           .erp-f08-symbol-field,.erp-f08-symbol-field *,
+           .erp-f08-casting,.erp-f08-casting *)) {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Camadas decorativas dos painéis, apenas dentro das seis superfícies.
+ * Preservar a cena F08, que pode ter sua própria composição e filtros SVG.
+ */
+html[data-erp-performance="true"][data-erp-theme]
+  :is(#erp-settings,#erp-f07-about-dialog,#historico,
+      #erpSummaryDialog,#erpExportDialog,#erpWorkDialog)
+  :not(:is(.erp-f08-stage,.erp-f08-stage *,
+           .erp-f08-symbol-field,.erp-f08-symbol-field *,
+           .erp-f08-casting,.erp-f08-casting *))::before,
+html[data-erp-performance="true"][data-erp-theme]
+  :is(#erp-settings,#erp-f07-about-dialog,#historico,
+      #erpSummaryDialog,#erpExportDialog,#erpWorkDialog)
+  :not(:is(.erp-f08-stage,.erp-f08-stage *,
+           .erp-f08-symbol-field,.erp-f08-symbol-field *,
+           .erp-f08-casting,.erp-f08-casting *))::after {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Os backdrops de dialog não são descendentes da janela no CSS. Desativá-los
+ * separadamente, mantendo sua cor/alpha e proteção visual sobre o conteúdo.
+ * O Histórico é uma section e usa também uma cobertura classe própria.
+ */
+html[data-erp-performance="true"][data-erp-theme]
+  :is(#erp-settings,#erp-f07-about-dialog,
+      #erpSummaryDialog,#erpExportDialog,#erpWorkDialog)::backdrop,
+html[data-erp-performance="true"][data-erp-theme]
+  .history-modal-backdrop {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}

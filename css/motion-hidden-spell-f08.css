@@ -1,0 +1,47 @@
+/* F08 REV02B | The Hidden Spell — cena estritamente local, sem Canvas.
+   Refino cromático da direção: metamorfose aprovada adota a cor ativa do tema, com contraste controlado. */
+#erp-f07-about-codename.erp-f08-trigger {
+  cursor:pointer; position:relative; display:inline-block; white-space:nowrap;
+  isolation:isolate; border-radius:5px; outline-offset:4px; touch-action:manipulation;
+}
+#erp-f07-about-codename.erp-f08-trigger:focus-visible {outline:2px solid var(--cr-ink,var(--text,#222));}
+#erp-f07-about-codename.erp-f08-casting { z-index:9; }
+#erp-f07-about-codename .erp-f08-stage {
+  pointer-events:none; position:absolute; inset:auto; left:50%; top:50%; translate:-50% -50%;
+  width:var(--erp-f08-width,128px); height:var(--erp-f08-height,78px); overflow:hidden;
+  clip-path:ellipse(49% 48% at 50% 50%); border-radius:43%;
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 52%,transparent 80%);
+  mask-image:radial-gradient(ellipse at center,#000 52%,transparent 80%); z-index:3; contain:layout style; isolation:isolate;
+}
+#erp-f07-about-codename .erp-f08-stage svg {width:100%;height:100%;display:block;overflow:hidden;filter:none;}
+#erp-f07-about-codename .erp-f08-stage svg :is(g,path,circle,ellipse,line,text,polygon,polyline) { transform-box:fill-box; transform-origin:center; }
+#erp-f07-about-codename .erp-f08-stage text { font-family:Georgia,'Times New Roman',serif; user-select:none; }
+#erp-f07-about-codename.erp-f08-casting { text-shadow:0 0 7px var(--erp-f08-theme-glow,rgba(127,207,255,.5)); }
+#erp-f07-about-codename.erp-f08-reduced { text-shadow:0 0 12px var(--erp-f08-theme-glow-strong,#d4aa54); }
+#erp-f07-about-codename .erp-f08-word { position:relative; z-index:4; display:inline-flex; align-items:baseline; gap:0; }
+#erp-f07-about-codename .erp-f08-letter {
+  position:relative; display:inline-block; color:var(--erp-f08-letter-base,var(--cr-ink,var(--text,#202136)));
+  transition:color .28s ease, filter .28s ease, text-shadow .28s ease; will-change:transform,opacity,color,text-shadow,filter;
+}
+#erp-f07-about-codename .erp-f08-letter::before {
+  content:attr(data-char); position:absolute; inset:0; color:transparent; opacity:0; pointer-events:none;
+  text-shadow:0 0 0 transparent; transition:opacity .25s ease, text-shadow .25s ease;
+}
+#erp-f07-about-codename.erp-f08-casting .erp-f08-letter { color:var(--erp-f08-letter-live,var(--erp-f08-letter-base)); }
+#erp-f07-about-codename.erp-f08-casting .erp-f08-letter.erp-f08-gold {
+  color:var(--erp-f08-theme-ink,#8654b8);
+  filter:drop-shadow(0 0 4px var(--erp-f08-theme-glow,rgba(166,139,228,.46))) drop-shadow(0 0 10px var(--erp-f08-theme-glow-soft,rgba(166,139,228,.23)));
+  text-shadow:0 0 1px var(--erp-f08-theme-shine,#cbb8f5), 0 0 6px var(--erp-f08-theme-glow), 0 0 14px var(--erp-f08-theme-glow-soft);
+}
+#erp-f07-about-codename.erp-f08-casting .erp-f08-letter.erp-f08-gold::before {
+  opacity:.9; color:transparent;
+  text-shadow:0 0 .35px var(--erp-f08-theme-shine,#d6c4ff), 0 0 3px var(--erp-f08-theme-glow-strong), 0 0 7px var(--erp-f08-theme-glow);
+}
+#erp-f07-about-codename.erp-f08-casting .erp-f08-letter.erp-f08-lift { transform:translateY(-.02em) scale(1.016); }
+#erp-f07-about-codename.erp-f08-casting .erp-f08-shine {
+  position:absolute; inset:-8% -4%; z-index:5; pointer-events:none; opacity:0;
+  background:linear-gradient(98deg, transparent 0%, transparent 35%, var(--erp-f08-theme-shine-haze,rgba(166,139,228,.10)) 44%, var(--erp-f08-theme-shine,rgba(220,200,255,.82)) 50%, var(--erp-f08-theme-shine-soft,rgba(166,139,228,.35)) 58%, transparent 67%, transparent 100%);
+  mix-blend-mode:screen; filter:blur(.2px);
+}
+#erp-f07-about-codename.erp-f08-reduced .erp-f08-letter { color:var(--erp-f08-theme-ink,#8654b8); text-shadow:0 0 5px var(--erp-f08-theme-glow-soft,rgba(166,139,228,.23)); }
+@media(prefers-reduced-motion:reduce){#erp-f07-about-codename.erp-f08-trigger { scroll-behavior:auto; }}

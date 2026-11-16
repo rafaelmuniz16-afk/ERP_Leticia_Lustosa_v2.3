@@ -1,0 +1,197 @@
+/* ERP | Motion & Animações — Íris · Revelio · acabamento visual Configurações.
+ * Apenas aparência/microcopy: não altera toggles, listeners, persistência,
+ * estados, Aurora, Modo Desempenho ou botão de restauração.
+ * Os 11 temas compartilham os tokens já definidos pelo Cinematic Workspace. */
+
+/* Dois cards de igual peso e mesma altura na grade original.
+ * Mantém os checkboxes e seus IDs no mesmo label para preservar eventos. */
+html[data-erp-theme] #erp-settings .erp-options > label.erp-effects-label:has(> input[type="checkbox"]),
+html[data-erp-theme] #erp-settings .erp-options > label.erp-performance-option:has(> input[type="checkbox"]) {
+  box-sizing: border-box;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 116px !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 15px 14px !important;
+  border: 1px solid var(--cw-line) !important;
+  border-radius: 13px !important;
+  background: var(--cw-surface) !important;
+  color: var(--cw-ink) !important;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--cw-surface) 55%, transparent);
+  align-self: stretch !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 5px 12px !important;
+  grid-template-columns: 41px minmax(0, 1fr) !important;
+  grid-template-rows: auto auto !important;
+}
+html[data-erp-theme] #erp-settings .erp-options > label.erp-effects-label:hover,
+html[data-erp-theme] #erp-settings .erp-options > label.erp-performance-option:hover {
+  border-color: color-mix(in srgb, var(--cw-accent) 36%, var(--cw-line)) !important;
+  background: color-mix(in srgb, var(--cw-accent) 4%, var(--cw-surface)) !important;
+}
+html[data-erp-theme] #erp-settings .erp-options > label.erp-effects-label:focus-within,
+html[data-erp-theme] #erp-settings .erp-options > label.erp-performance-option:focus-within {
+  border-color: var(--cw-accent) !important;
+}
+html[data-erp-theme] #erp-settings .erp-options > label.erp-effects-label > input,
+html[data-erp-theme] #erp-settings .erp-options > label.erp-performance-option > input {
+  grid-column: 1 !important;
+  grid-row: 1 / span 2 !important;
+  align-self: center !important;
+}
+html[data-erp-theme] #erp-settings .erp-effects-copy {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  gap: 5px;
+  min-width: 0;
+}
+html[data-erp-theme] #erp-settings .erp-options .erp-effects-copy strong,
+html[data-erp-theme] #erp-settings .erp-options .erp-performance-option strong {
+  color: var(--cw-ink) !important;
+  font: 750 12px/1.4 var(--motion-type-body, 'DM Sans', sans-serif) !important;
+  letter-spacing: 0 !important;
+}
+html[data-erp-theme] #erp-settings .erp-options .erp-effects-copy small,
+html[data-erp-theme] #erp-settings .erp-options .erp-performance-option small {
+  display: block !important;
+  color: var(--cw-ink) !important;
+  font: 500 10.5px/1.55 var(--motion-type-body, 'DM Sans', sans-serif) !important;
+  margin: 0 !important;
+}
+/* Correção QA23-F06-CONFIG-001: microcopy e status de 10–10,5px usam
+ * --cw-ink para contraste legível nos temas claros e escuros, preservando
+ * as cores de superfícies, paletas e lógica original. */
+/* Indicador puramente CSS: segue o estado real do checkbox, sem JS. */
+html[data-erp-theme] #erp-settings .erp-effects-copy::after {
+  content: 'Desativado';
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: 3px;
+  padding: 3px 9px;
+  border: 1px solid color-mix(in srgb, var(--cw-accent) 26%, var(--cw-line));
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--cw-accent) 6%, var(--cw-surface));
+  color: var(--cw-ink);
+  font: 700 10px/1.5 var(--motion-type-body, 'DM Sans', sans-serif);
+}
+html[data-erp-theme] #erp-settings .erp-effects-label:has(> input:checked) .erp-effects-copy::after {
+  content: 'Ativado';
+  color: var(--cw-ink);
+  background: color-mix(in srgb, var(--cw-accent) 12%, var(--cw-surface));
+}
+html[data-erp-theme] #erp-settings .erp-performance-option > span:first-of-type {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+html[data-erp-theme] #erp-settings .erp-performance-option > .erp-performance-state {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: start;
+  align-self: start;
+  margin: 3px 0 0 !important;
+  padding: 3px 9px !important;
+  border: 1px solid color-mix(in srgb, var(--cw-accent) 26%, var(--cw-line)) !important;
+  border-radius: 99px !important;
+  background: color-mix(in srgb, var(--cw-accent) 6%, var(--cw-surface)) !important;
+  color: var(--cw-ink) !important;
+  font: 700 10px/1.5 var(--motion-type-body, 'DM Sans', sans-serif) !important;
+}
+html[data-erp-performance="true"][data-erp-theme] #erp-settings .erp-performance-option {
+  border-color: color-mix(in srgb, var(--cw-accent) 55%, var(--cw-line)) !important;
+}
+html[data-erp-performance="true"][data-erp-theme] #erp-settings .erp-performance-option > .erp-performance-state {
+  background: color-mix(in srgb, var(--cw-accent) 12%, var(--cw-surface)) !important;
+  color: var(--cw-ink) !important;
+}
+
+/* Restaurar: superfície temática contida, sem a antiga mistura fixa #b98276. */
+html[data-erp-theme] #erp-settings .erp-options > .erp-settings-reset-row {
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  margin: 3px 0 0 !important;
+  padding: 17px 18px 17px 21px !important;
+  gap: 15px !important;
+  border: 1px solid color-mix(in srgb, var(--cw-accent) 24%, var(--cw-line)) !important;
+  border-radius: 14px !important;
+  background: color-mix(in srgb, var(--cw-accent) 5%, var(--cw-surface)) !important;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--cw-surface) 55%, transparent);
+}
+html[data-erp-theme] #erp-settings .erp-settings-reset-row::before {
+  content: '';
+  position: absolute;
+  top: 13px;
+  bottom: 13px;
+  left: 0;
+  width: 3px;
+  border-radius: 0 4px 4px 0;
+  background: var(--cw-accent);
+  opacity: .8;
+  pointer-events: none;
+}
+html[data-erp-theme] #erp-settings .erp-settings-reset-explainer {
+  flex: 1 1 290px;
+  min-width: 0;
+  gap: 5px;
+}
+html[data-erp-theme] #erp-settings .erp-settings-reset-explainer strong {
+  color: var(--cw-ink) !important;
+  font: 750 12px/1.4 var(--motion-type-body, 'DM Sans', sans-serif) !important;
+}
+html[data-erp-theme] #erp-settings .erp-settings-reset-explainer small {
+  color: var(--cw-ink) !important;
+  font: 500 10.5px/1.6 var(--motion-type-body, 'DM Sans', sans-serif) !important;
+}
+html[data-erp-theme] #erp-settings .erp-settings-reset-row > button.erp-restore-defaults {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  min-height: 42px;
+  max-width: 100%;
+  padding: 10px 15px;
+  border: 1px solid color-mix(in srgb, var(--cw-accent) 42%, var(--cw-line)) !important;
+  border-radius: 10px !important;
+  background: color-mix(in srgb, var(--cw-accent) 10%, var(--cw-surface)) !important;
+  color: var(--cw-ink) !important;
+  font: 750 11px/1.4 var(--motion-type-body, 'DM Sans', sans-serif) !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+html[data-erp-theme] #erp-settings .erp-settings-reset-row > button.erp-restore-defaults:hover {
+  border-color: var(--cw-accent) !important;
+  background: color-mix(in srgb, var(--cw-accent) 17%, var(--cw-surface)) !important;
+}
+html[data-erp-theme] #erp-settings .erp-settings-reset-row > button.erp-restore-defaults:active {
+  background: color-mix(in srgb, var(--cw-accent) 22%, var(--cw-surface)) !important;
+}
+@media (max-width: 540px) {
+  html[data-erp-theme] #erp-settings .erp-options > label.erp-effects-label:has(> input[type="checkbox"]),
+  html[data-erp-theme] #erp-settings .erp-options > label.erp-performance-option:has(> input[type="checkbox"]) {
+    min-height: 154px !important;
+    padding: 13px !important;
+  }
+  html[data-erp-theme] #erp-settings .erp-options > .erp-settings-reset-row {
+    padding: 15px 15px 15px 19px !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  html[data-erp-theme] #erp-settings .erp-settings-reset-row > button.erp-restore-defaults {
+    flex: 1 1 100%;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 360px) {
+  html[data-erp-theme] #erp-settings .erp-options > label.erp-effects-label:has(> input[type="checkbox"]),
+  html[data-erp-theme] #erp-settings .erp-options > label.erp-performance-option:has(> input[type="checkbox"]) {
+    min-height: 180px !important;
+  }
+}

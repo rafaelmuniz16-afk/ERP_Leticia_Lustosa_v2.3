@@ -1,0 +1,46 @@
+/* Revelio F12: retrato de perfil, sobreposição local, sem mudanças nos controles jurídicos */
+#cr-chrome button.cr-avatar.erp-f12-profile-trigger{
+  box-sizing:border-box!important;position:relative!important;flex:none!important;display:block!important;
+  inline-size:34px!important;block-size:34px!important;min-inline-size:34px!important;
+  padding:0!important;margin:0!important;border-radius:50%!important;
+  border:2px solid color-mix(in srgb,var(--cr-accent,#a68be4) 70%,transparent)!important;
+  overflow:hidden!important;cursor:pointer!important;isolation:isolate!important;
+  background:var(--cr-panel,#fff)!important;box-shadow:0 0 0 1px color-mix(in srgb,var(--cr-accent,#a68be4) 22%,transparent)!important;
+}
+#cr-chrome .erp-f12-profile-trigger img{
+  width:100%!important;height:100%!important;display:block!important;object-fit:cover!important;
+  object-position:center center!important;border:0!important;filter:none!important;transform:none!important;
+}
+#cr-chrome button.erp-f12-profile-trigger:focus-visible{outline:3px solid var(--cr-accent,#a68be4)!important;outline-offset:3px!important}
+#cr-chrome button.erp-f12-profile-trigger:hover{box-shadow:0 0 0 3px color-mix(in srgb,var(--cr-accent,#a68be4) 25%,transparent)!important}
+#erp-f12-profile-dialog{
+  box-sizing:border-box;width:min(440px,calc(100vw - 24px));max-height:calc(100dvh - 24px);
+  margin:auto;padding:0;border:1px solid var(--cr-line,var(--line,#ddd));border-radius:21px;
+  background:var(--cr-panel,var(--surface,#fff));color:var(--cr-ink,var(--text,#243));
+  box-shadow:0 26px 75px #0006;overflow:auto;font-family:'DM Sans',system-ui,sans-serif;
+}
+#erp-f12-profile-dialog::backdrop{background:#080b1bad;backdrop-filter:blur(4px)}
+#erp-f12-profile-dialog .erp-f12-profile-head{display:flex;justify-content:space-between;gap:16px;align-items:start;padding:20px 23px 12px;border-bottom:1px solid var(--cr-line,var(--line,#ddd))}
+#erp-f12-profile-dialog .erp-f12-profile-head h2{font-size:19px;line-height:1.2;margin:2px 0 7px}
+#erp-f12-profile-dialog .erp-f12-profile-head p{font-size:11px;line-height:1.5;margin:0;color:var(--cr-muted,var(--muted,#666))}
+#erp-f12-profile-dialog .erp-f12-eyebrow{letter-spacing:.13em;font-size:10px!important;font-weight:800;color:var(--cr-accent,#a68be4)!important}
+#erp-f12-close{width:36px;height:36px;flex:none;border-radius:50%;border:1px solid var(--cr-line,var(--line,#ddd));color:inherit;background:transparent;cursor:pointer;font-size:22px}
+#erp-f12-profile-dialog .erp-f12-profile-body{padding:17px 23px 22px;text-align:center}
+#erp-f12-profile-dialog .erp-f12-profile-circle{height:220px;width:220px;max-width:75vw;max-height:75vw;aspect-ratio:1;margin:0 auto;overflow:hidden;border-radius:50%;border:4px solid color-mix(in srgb,var(--cr-accent,#a68be4) 65%,transparent);background:var(--cr-panel2,#eee);box-shadow:0 10px 26px #0002}
+#erp-f12-profile-preview{display:block;width:100%;height:100%;touch-action:none;cursor:grab;outline-offset:-8px}
+#erp-f12-profile-preview:active{cursor:grabbing}
+#erp-f12-profile-dialog .erp-f12-profile-message{font-size:11px;line-height:1.5;min-height:30px;margin:13px 0;color:var(--cr-muted,var(--muted,#666))}
+#erp-f12-profile-dialog .erp-f12-profile-message[data-error="true"]{color:#d75f50}
+#erp-f12-profile-dialog .erp-f12-profile-adjust{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center;text-align:start;font-size:12px;margin:8px 0 18px}
+#erp-f12-profile-dialog .erp-f12-profile-adjust input{accent-color:var(--cr-accent,var(--primary,#8763c4));min-width:0}
+#erp-f12-profile-dialog .erp-f12-profile-adjust span{grid-column:1/-1;text-align:center;color:var(--cr-muted,var(--muted,#777));font-size:10px;margin-top:4px}
+#erp-f12-profile-dialog .erp-f12-profile-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+#erp-f12-profile-dialog .erp-f12-profile-actions button{cursor:pointer;font-weight:700;border-radius:10px;padding:10px 12px;font-size:11px;min-height:38px}
+#erp-f12-profile-dialog .erp-f12-profile-actions button:disabled{opacity:.45;cursor:not-allowed}
+#erp-f12-profile-dialog .erp-f12-primary{background:var(--cr-accent,var(--primary,#8763c4));color:white;border:1px solid transparent}
+#erp-f12-profile-dialog .erp-f12-secondary{background:var(--cr-panel2,var(--surface-2,#eee));color:inherit;border:1px solid var(--cr-line,var(--line,#ddd))}
+#erp-f12-profile-dialog .erp-f12-quiet{border:1px solid transparent;color:inherit;background:transparent}
+#erp-f12-profile-dialog button:focus-visible,#erp-f12-profile-dialog canvas:focus-visible,#erp-f12-profile-dialog input:focus-visible{outline:3px solid var(--cr-accent,var(--primary,#8763c4));outline-offset:2px}
+@media(max-height:580px){#erp-f12-profile-dialog .erp-f12-profile-circle{height:130px;width:130px}#erp-f12-profile-dialog .erp-f12-profile-head{padding:12px 17px}#erp-f12-profile-dialog .erp-f12-profile-body{padding:12px 17px}}
+@media(max-width:370px){#cr-chrome .cr-user{gap:5px!important}#erp-f12-profile-dialog .erp-f12-profile-head{padding:14px}}
+@media(prefers-reduced-motion:reduce){#erp-f12-profile-dialog *{animation:none!important;transition:none!important}}

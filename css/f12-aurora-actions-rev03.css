@@ -1,0 +1,28 @@
+/* ERP Revelio F12 REV03 — cabeçalho Aurora Live; somente agrupamento responsivo.
+   Sem mudanças no estilo visual dos botões, na sidebar sticky ou no avatar. */
+#sideAuroraCard .side-aurora-head > .f12-aurora-actions {
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-left: auto;
+  min-width: 0;
+  max-width: 100%;
+}
+#sideAuroraCard .f12-aurora-actions > :is(#erpSummaryOpen, #erpWorkOpen, #erpExportOpen) {
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+/* Neutraliza margem da regra mobile antiga, antes aplicada a um botão isolado. */
+#sideAuroraCard .f12-aurora-actions > #erpSummaryOpen { margin-left: 0; }
+
+/* Em telas minúsculas, a regra mobile pré-existente esconde os três textos
+   e preserva ícones com aria-label, evitando overflow/corte dos controles. */
+@media (max-width: 480px) {
+  #sideAuroraCard .f12-aurora-actions > :is(#erpSummaryOpen, #erpWorkOpen, #erpExportOpen) {
+    min-width: 36px;
+    justify-content: center;
+  }
+}

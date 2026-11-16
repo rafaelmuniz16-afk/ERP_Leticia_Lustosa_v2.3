@@ -1,0 +1,125 @@
+/* Íris F07 · decisão da direção sobre o conteúdo institucional; QA23-F07-A11Y-001: contraste >= 4,5:1 nos textos pequenos. */
+/* F07 — identidade institucional com acabamento temático por universo. */
+
+.erp-f07-footer{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;width:100%;min-height:30px;margin-top:-2px;padding:4px 14px 14px;box-sizing:border-box}
+#erp-f07-about-trigger{appearance:none;border:0;background:transparent;color:var(--cr-ink,var(--text,#202136));font:650 10px/1.45 var(--motion-type-body,'DM Sans',sans-serif);letter-spacing:.025em;cursor:pointer;padding:5px 8px;border-radius:999px;opacity:1;transition:opacity .15s ease,color .15s ease,background-color .15s ease,transform .15s ease}
+#erp-f07-about-trigger:hover{background:color-mix(in srgb,var(--cr-accent,var(--primary,#8876c5)) 10%,transparent);text-decoration:underline;text-underline-offset:3px;transform:translateY(-1px)}
+#erp-f07-about-trigger:focus-visible{outline:2px solid var(--cr-ink,var(--text,#202136));outline-offset:3px}
+
+.erp-f07-dialog{
+  --erp-f07-accent:var(--cr-accent,var(--primary,#8876c5));
+  --erp-f07-accent-soft:color-mix(in srgb,var(--erp-f07-accent) 14%,var(--cr-panel2,var(--cr-soft,#f5f3fa)));
+  --erp-f07-accent-line:color-mix(in srgb,var(--erp-f07-accent) 26%,var(--cr-line,#dad3e8));
+  --erp-f07-title-font:var(--motion-type-title,'Manrope','DM Sans',sans-serif);
+  --erp-f07-body-font:var(--motion-type-body,'DM Sans',sans-serif);
+  --erp-f07-number-font:var(--motion-type-number,var(--motion-type-body,'DM Sans',sans-serif));
+  border:1px solid var(--erp-f07-accent-line);
+  border-radius:18px;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--erp-f07-accent) 8%,var(--cr-panel,#fff)) 0%,var(--cr-panel,#fff) 13%,var(--cr-panel,#fff) 100%);
+  color:var(--cr-ink,var(--text,#202136));
+  padding:0;
+  width:min(650px,calc(100vw - 24px));
+  max-width:calc(100vw - 24px);
+  max-height:min(88dvh,840px);
+  box-shadow:0 20px 70px #10102244;
+  overflow:hidden;
+}
+.erp-f07-dialog::backdrop{background:rgba(10,12,26,.62);backdrop-filter:blur(3px)}
+.erp-f07-dialog-shell,.erp-f07-about-body,.erp-f07-about-actions{font-family:var(--erp-f07-body-font)}
+.erp-f07-dialog-shell{display:flex;flex-direction:column;max-height:min(88dvh,840px);min-width:0}
+.erp-f07-about-head{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;padding:20px 24px 14px;border-bottom:1px solid var(--erp-f07-accent-line);background:linear-gradient(180deg,color-mix(in srgb,var(--erp-f07-accent) 14%,transparent) 0%,transparent 100%)}
+.erp-f07-eyebrow{color:color-mix(in srgb,var(--erp-f07-accent) 64%,var(--cr-ink,var(--text,#202136)));font-size:10px;letter-spacing:.16em;font-weight:800;margin:0 0 6px;text-transform:uppercase}
+.erp-f07-about-head h2{font:800 clamp(19px,3vw,24px)/1.2 var(--erp-f07-title-font);margin:0;letter-spacing:-.02em;color:var(--cr-ink,var(--text,#202136))}
+.erp-f07-about-close{appearance:none;border:1px solid var(--erp-f07-accent-line);border-radius:11px;color:inherit;background:color-mix(in srgb,var(--erp-f07-accent) 10%,var(--cr-soft,#f3f1f8));font:24px/1 var(--erp-f07-body-font);cursor:pointer;width:35px;height:35px;flex-shrink:0}
+.erp-f07-about-close:hover,.erp-f07-about-actions button:hover{filter:brightness(.97)}
+.erp-f07-dialog button:focus-visible{outline:2px solid var(--erp-f07-accent,#8876c5);outline-offset:3px}
+.erp-f07-about-body{overflow-y:auto;overscroll-behavior:contain;padding:20px 24px 22px;scrollbar-gutter:stable;min-height:0;flex:1;background:linear-gradient(180deg,color-mix(in srgb,var(--erp-f07-accent) 3%,transparent) 0%,transparent 24%)}
+.erp-f07-identity-card{background:linear-gradient(180deg,var(--erp-f07-accent-soft) 0%,var(--cr-panel2,var(--cr-soft,#f5f3fa)) 100%);border:1px solid var(--erp-f07-accent-line);border-radius:14px;padding:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+.erp-f07-identity-card h3{font:800 clamp(16px,3vw,21px)/1.32 var(--erp-f07-title-font);margin:0 0 14px;overflow-wrap:anywhere;letter-spacing:-.02em}
+.erp-f07-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0}
+.erp-f07-facts div{min-width:0;background:color-mix(in srgb,var(--erp-f07-accent) 8%,transparent);border:1px solid color-mix(in srgb,var(--erp-f07-accent) 18%,transparent);border-radius:10px;padding:10px 11px}
+.erp-f07-facts dt{color:color-mix(in srgb,var(--erp-f07-accent) 58%,var(--cr-ink,var(--text,#202136)));font:800 10px/1.35 var(--erp-f07-body-font);margin-bottom:4px;text-transform:uppercase;letter-spacing:.08em}
+.erp-f07-facts dd{margin:0;font:800 12px/1.45 var(--erp-f07-number-font);overflow-wrap:anywhere}
+.erp-f07-about-section{padding:18px 0;border-bottom:1px solid color-mix(in srgb,var(--erp-f07-accent) 15%,var(--cr-line,#e5e0ed))}
+.erp-f07-about-section:last-child{border-bottom:0;padding-bottom:0}
+.erp-f07-about-section h3{font:780 14px/1.5 var(--erp-f07-title-font);margin:0 0 8px;color:var(--cr-ink,var(--text,#202136));letter-spacing:-.012em}
+.erp-f07-about-section p{font:500 12px/1.72 var(--erp-f07-body-font);margin:0 0 5px;overflow-wrap:anywhere}
+.erp-f07-muted{color:color-mix(in srgb,var(--cr-ink,var(--text,#202136)) 78%,transparent)}
+.erp-f07-departments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.erp-f07-department{background:linear-gradient(180deg,color-mix(in srgb,var(--erp-f07-accent) 8%,var(--cr-panel2,var(--cr-soft,#f5f3fa))) 0%,var(--cr-panel2,var(--cr-soft,#f5f3fa)) 100%);border:1px solid color-mix(in srgb,var(--erp-f07-accent) 18%,var(--cr-line,#e5e0ed));border-radius:12px;padding:12px;display:grid;gap:4px;min-width:0;box-shadow:0 10px 24px color-mix(in srgb,var(--erp-f07-accent) 8%,transparent)}
+.erp-f07-department strong{font:800 10px/1.35 var(--erp-f07-body-font);letter-spacing:.08em;text-transform:uppercase;color:color-mix(in srgb,var(--erp-f07-accent) 62%,var(--cr-ink,var(--text,#202136)))}
+.erp-f07-department span{font:800 13px/1.4 var(--erp-f07-title-font);color:var(--cr-ink,var(--text,#202136))}
+.erp-f07-department p{font:500 11px/1.62 var(--erp-f07-body-font);margin:0;color:var(--cr-ink,var(--text,#202136))}
+.erp-f07-about-actions{padding:11px 24px 14px;border-top:1px solid var(--erp-f07-accent-line);display:flex;justify-content:flex-end;background:color-mix(in srgb,var(--erp-f07-accent) 5%,transparent)}
+.erp-f07-about-actions button{border:1px solid var(--erp-f07-accent-line);background:var(--erp-f07-accent-soft);color:inherit;padding:8px 18px;border-radius:999px;cursor:pointer;font:700 12px/1.2 var(--erp-f07-body-font);box-shadow:0 8px 20px color-mix(in srgb,var(--erp-f07-accent) 10%,transparent)}
+
+#cr-chrome .cr-logo{width:auto;max-width:min(360px,38vw);min-width:0;letter-spacing:-.04em}
+#cr-chrome .cr-logo-text{min-width:0;white-space:normal;line-height:1.2}
+#cr-chrome .cr-logo-main{font-size:clamp(11px,1.15vw,16px);font-weight:800}
+.sidebar .brand-title{font-size:12px;line-height:1.3;white-space:normal;overflow-wrap:break-word}
+
+/* Ajuste de final de página: cards financeiros totalmente visíveis e alinhados, com respiro para o atalho do rodapé. */
+.finance-grid{align-items:stretch!important}
+.finance-grid>.finance-card{display:flex;flex-direction:column;min-height:100%}
+.finance-grid>.finance-card .panel-body{display:flex;flex-direction:column;flex:1 1 auto}
+html[data-erp-theme] .main{padding-bottom:34px!important}
+html[data-erp-theme] .finance-grid{margin-bottom:2px!important}
+
+/* Variações finas para temas com linguagem própria mais marcada. */
+html[data-erp-theme="cyberpunk"] .erp-f07-dialog{background:linear-gradient(180deg,rgba(16,30,51,.98) 0%,rgba(10,19,34,.98) 100%);box-shadow:0 26px 74px rgba(2,14,32,.72),0 0 0 1px rgba(89,234,250,.16)}
+html[data-erp-theme="cyberpunk"] .erp-f07-about-head h2{color:#e8fbff;text-shadow:0 0 18px rgba(91,247,255,.17)}
+html[data-erp-theme="cyberpunk"] .erp-f07-about-section h3,
+html[data-erp-theme="cyberpunk"] .erp-f07-identity-card h3,
+html[data-erp-theme="cyberpunk"] .erp-f07-department span{letter-spacing:.02em}
+html[data-erp-theme="cyberpunk"] .erp-f07-about-close,
+html[data-erp-theme="cyberpunk"] .erp-f07-about-actions button{box-shadow:0 0 0 1px rgba(91,247,255,.14),0 0 24px rgba(91,247,255,.08)}
+
+html[data-erp-theme="glassy-crm"] .erp-f07-dialog{background:linear-gradient(180deg,color-mix(in srgb,var(--cr-panel,#fff) 82%,rgba(255,255,255,.35)) 0%,color-mix(in srgb,var(--cr-panel,#fff) 92%,rgba(255,255,255,.18)) 100%);backdrop-filter:blur(18px);box-shadow:0 28px 72px rgba(27,51,86,.22);border-color:color-mix(in srgb,var(--cr-accent,#7aa7ff) 22%,rgba(255,255,255,.55))}
+html[data-erp-theme="glassy-crm"] .erp-f07-identity-card,
+html[data-erp-theme="glassy-crm"] .erp-f07-department{backdrop-filter:blur(8px)}
+html[data-erp-theme="glassy-crm"] .erp-f07-about-close,
+html[data-erp-theme="glassy-crm"] .erp-f07-about-actions button{background:color-mix(in srgb,var(--cr-panel,#fff) 78%,rgba(255,255,255,.32))}
+
+.erp-f07-year-gate{border-radius:16px;border:1px solid #b7a8db;background:#fff;color:#25223a;padding:24px;width:min(430px,calc(100vw - 24px));max-width:calc(100vw - 24px);box-shadow:0 24px 70px #15112860;font-family:'DM Sans',sans-serif}
+.erp-f07-year-gate::backdrop{background:#0f112ac9}
+.erp-f07-year-gate h2{font-size:18px;margin:0 0 10px}.erp-f07-year-gate p{font-size:13px;line-height:1.6}.erp-f07-year-gate label{display:block;font-size:12px;margin:12px 0 6px}
+.erp-f07-year-gate select{width:100%;padding:10px;border:1px solid #b9b3d5;border-radius:8px;background:#fff}
+.erp-f07-year-gate button{margin-top:14px;padding:11px 16px;border:0;border-radius:8px;background:#725abb;color:white;cursor:pointer}
+#erp-f07-year-gate-status{color:#a52245}
+
+@media(max-width:600px){
+  .erp-f07-about-head{padding:16px}
+  .erp-f07-about-body{padding:15px}
+  .erp-f07-about-actions{padding:10px 16px}
+  .erp-f07-facts{grid-template-columns:1fr 1fr}
+  .erp-f07-departments{grid-template-columns:1fr}
+  .erp-f07-dialog,.erp-f07-dialog-shell{max-height:90dvh}
+  #cr-chrome .cr-logo{max-width:42vw}
+  .erp-f07-footer{padding-bottom:12px}
+  html[data-erp-theme] .main{padding-bottom:24px!important}
+}
+@media(prefers-reduced-motion:reduce){#erp-f07-about-trigger{transition:none}.erp-f07-dialog::backdrop{backdrop-filter:none}}
+
+/* Evita exibir um ano operacional provisório atrás do aviso obrigatório. */
+html[data-erp-year-unconfigured="true"] .app,html[data-erp-year-unconfigured="true"] #cr-chrome,html[data-erp-year-unconfigured="true"] .erp-f07-footer{visibility:hidden!important}
+
+
+/* QA003 — correção residual de alinhamento do card de nuvem no fechamento da dashboard.
+   A direção apontou que a caixa da nuvem ainda permanecia alguns pixels abaixo
+   das demais caixas no final da página. O ajuste é apenas geométrico/visual. */
+@media (min-width:931px){
+  html[data-erp-theme] .sidebar{padding-bottom:20px!important}
+  /* QA23-F07-QA003-ALIGN-001: o seletor direto equivale/supera a
+     especificidade do margin-bottom:0 !important da F05. Aplica apenas
+     com navegação lateral; nunca interfere no menu superior/mobile. */
+  html[data-erp-theme]:not([data-erp-layout="top"]) .app > .sidebar > .side-card{
+    margin-bottom:14px!important;
+  }
+}
+
+/* QA23-F07-QA003-CONTRAST-001: microtextos usam a tinta principal do
+   universo, de alto contraste, mantendo os acentos cromáticos no desenho,
+   contornos, destaques e nos títulos maiores. Nenhuma mudança de fonte. */
+.erp-f07-dialog :is(.erp-f07-eyebrow,.erp-f07-facts dt,.erp-f07-department strong){
+  color:var(--cr-ink,var(--text,#202136))!important;
+}

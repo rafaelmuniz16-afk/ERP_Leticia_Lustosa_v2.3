@@ -1,0 +1,212 @@
+/* ERP v2.3 Revelio — F06 | Modo Desempenho (Cinematic Rebirth Light).
+ * Never target the SweetAlert/Easter Egg layer, operational spinners, or chart content.
+ * Continuous rAF/interval processing is stopped in js/themes/runtime.js. */
+/* Persistent ambient effects remain disabled in performance mode, including
+ * while an explicitly requested Easter Egg is open. */
+html[data-erp-performance="true"] #erp-theme-visuals canvas,
+html[data-erp-performance="true"] :is(#cyberCanvas,#spookyCanvas,#easterCanvas,#horrorCanvas,#fireworksCanvas),
+html[data-erp-performance="true"] :is(#cr-portal,.glass-light-wash),
+html[data-erp-performance="true"] :is(.snow-bg,.cute-bg){
+  display:none!important;
+}
+/* Original's hearts/stars are short-lived click / Easter Egg particles, not
+ * ambient backgrounds. Allow them only during the explicit SweetAlert scene.
+ * The existing settings.css reduced-motion rule remains authoritative. */
+html[data-erp-performance="true"]:not([data-erp-easter-active="true"]) :is(.cute-heart,.cute-star){
+  display:none!important;
+}
+html[data-erp-performance="true"] #erp-theme-visuals *,
+html[data-erp-performance="true"] #erp-theme-visuals *::before,
+html[data-erp-performance="true"] #erp-theme-visuals *::after,
+html[data-erp-performance="true"] :is(.cr-orbital-illustration,.cr-mascot-caption,.cr-mascot-house,.cr-christmas-tree,.cr-cy-circuit,.cr-cy-diamond),
+html[data-erp-performance="true"] :is(.cr-orbital-illustration,.cr-mascot-caption,.cr-mascot-house,.cr-christmas-tree,.cr-cy-circuit,.cr-cy-diamond)::before,
+html[data-erp-performance="true"] :is(.cr-orbital-illustration,.cr-mascot-caption,.cr-mascot-house,.cr-christmas-tree,.cr-cy-circuit,.cr-cy-diamond)::after {
+  animation:none!important; transition:none!important;
+}
+html[data-erp-performance="true"] :is(.unicorn-mascot,.pumpkin-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,.bunny-mascot,.junina-mascot,.cyber-mascot,.glassy-mascot,.eye-mascot),
+html[data-erp-performance="true"] :is(.unicorn-mascot,.pumpkin-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,.bunny-mascot,.junina-mascot,.cyber-mascot,.glassy-mascot,.eye-mascot) * {
+  animation:none!important; transition:none!important;
+}
+/* Static elegant surfaces, preserve theme variables, contrast and individual palettes. */
+html[data-erp-performance="true"] body::before,
+html[data-erp-performance="true"] body::after {animation:none!important;transition:none!important;}
+html[data-erp-performance="true"] :is(.panel,.kpi,.sidebar,.topbar,#cr-chrome){
+  backdrop-filter:none!important; -webkit-backdrop-filter:none!important;
+  transition:background-color .12s ease,color .12s ease!important;
+}
+/* Local settings only; both preference toggles can coexist independently. */
+#erp-settings .erp-performance-option{flex:1 0 100%;width:100%;display:flex;flex-direction:row;align-items:center;gap:12px;
+  padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2);cursor:pointer}
+#erp-settings .erp-performance-option input{flex:0 0 auto}
+#erp-settings .erp-performance-option>span:nth-of-type(1){display:flex;flex:1 1 auto;flex-direction:column;gap:4px;min-width:0}
+#erp-settings .erp-performance-option strong{font-size:12px;color:var(--text)}
+#erp-settings .erp-performance-option small{font-size:11px;line-height:1.5;color:var(--muted)}
+#erp-settings .erp-performance-state{flex:0 0 auto;font-size:11px;font-weight:700;
+  border-radius:100px;padding:5px 10px;border:1px solid var(--line);color:var(--text)}
+html[data-erp-performance="true"] #erp-settings .erp-performance-option{border-color:var(--primary)}
+html[data-erp-performance="true"] #erp-settings .erp-performance-state{color:var(--primary);background:var(--surface)}
+@media(max-width:540px){#erp-settings .erp-performance-option{flex-wrap:wrap}#erp-settings .erp-performance-state{margin-left:28px}}
+
+
+/* F09 Etapa 01 — ambient mascots are still when either condition is true:
+ * performance=ON OR the SAVED decorative-effects preference=OFF.
+ * This marker is computed from ERPTheme.state in boot.js and is intentionally
+ * independent of the temporary erpEffects override during Easter Eggs.
+ * Scope only to the mascot house; SweetAlert scenes and feedback are untouched.
+ * Additional theme attribute defeats the higher-specificity !important
+ * bobbing rules in cinematic-mascot-unification-v1.css. */
+html[data-erp-mascot-motion="off"][data-erp-theme] #cr-mascot-house
+  :is(.unicorn-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,
+      .bunny-mascot,.junina-mascot,.pumpkin-mascot,.eye-mascot,
+      .cyber-mascot,.glassy-mascot),
+html[data-erp-mascot-motion="off"][data-erp-theme] #cr-mascot-house
+  :is(.unicorn-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,
+      .bunny-mascot,.junina-mascot,.pumpkin-mascot,.eye-mascot,
+      .cyber-mascot,.glassy-mascot)::before,
+html[data-erp-mascot-motion="off"][data-erp-theme] #cr-mascot-house
+  :is(.unicorn-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,
+      .bunny-mascot,.junina-mascot,.pumpkin-mascot,.eye-mascot,
+      .cyber-mascot,.glassy-mascot)::after,
+html[data-erp-mascot-motion="off"][data-erp-theme] #cr-mascot-house
+  :is(.unicorn-mascot,.gemini-mascot,.santa-mascot,.toast-mascot,
+      .bunny-mascot,.junina-mascot,.pumpkin-mascot,.eye-mascot,
+      .cyber-mascot,.glassy-mascot)
+  :not(.bubble, .bubble *, .glassy-bubble, .glassy-bubble *) {
+  animation: none !important;
+}
+/* Preserve mascot click/keyboard interaction and speech-bubble transitions. */
+
+/* Accessible, real disabled state; never alter the stored effects preference. */
+html[data-erp-performance="true"] #erp-settings .erp-effects-label.erp-effects-locked {
+  cursor: not-allowed !important;
+  border-style: dashed !important;
+  border-color: color-mix(in srgb, var(--cw-accent, var(--primary)) 28%, var(--cw-line, var(--line))) !important;
+}
+html[data-erp-performance="true"] #erp-settings .erp-effects-label.erp-effects-locked > input {
+  cursor: not-allowed !important;
+  opacity: .65;
+}
+/* The visible status is EFFECTIVE; stored manual ON remains unchanged. */
+html[data-erp-performance="true"] #erp-settings .erp-effects-label.erp-effects-locked .erp-effects-copy::after {
+  content: "Suspensos" !important;
+}
+/* Íris' original typography has display:block !important for small elements.
+ * An explicit attribute selector prevents the hint from leaking when hidden. */
+#erp-settings #erp-effects-performance-note[hidden] {display:none !important;}
+#erp-settings #erp-effects-performance-note:not([hidden]) {
+  display:block !important;
+  color: var(--cw-ink, var(--text)) !important;
+  font-weight:600 !important;
+}
+
+/* F09 — Evolução diária's themed ornaments can animate independently of the
+ * Chart.js canvas. Freeze only these dashboard decorations while performance
+ * is on or the saved Efeitos decorativos preference is off. Keep the graphics
+ * visible, preserve charts, hover tooltips and explicit Easter Egg scenes. */
+html[data-erp-performance="true"][data-erp-theme] .analytics-section > .panel:first-child .chart-wrap::before,
+html[data-erp-performance="true"][data-erp-theme] .analytics-section > .panel:first-child .chart-wrap::after,
+html[data-erp-effects="false"][data-erp-theme] .analytics-section > .panel:first-child .chart-wrap::before,
+html[data-erp-effects="false"][data-erp-theme] .analytics-section > .panel:first-child .chart-wrap::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* F09 E04 — Precedência efetiva no perfil leve.
+ * A preferência MANUAL data-erp-effects não é modificada: este bloco faz
+ * performance=ON equivaler à suspensão ambiente de efeitos decorativos.
+ * É uma proteção explícita contra animações CSS dos 11 temas com !important,
+ * inclusive pseudo-elementos e painéis fora da árvore .app.
+ * Não inclui a camada SweetAlert de Easter Eggs, o carregamento operacional
+ * nem as cenas F08 explicitamente acionadas pela usuária. */
+html[data-erp-performance="true"][data-erp-theme] .app
+  :not(:is(.erp-f08-title-active,.erp-f08-title-active *,
+           .erp-f08-casting,.erp-f08-casting *,
+           .erp-f08-reduced,.erp-f08-reduced *,
+           .erp-f08-symbol-field,.erp-f08-symbol-field *)),
+html[data-erp-performance="true"][data-erp-theme] .app
+  :not(:is(.erp-f08-title-active,.erp-f08-title-active *,
+           .erp-f08-casting,.erp-f08-casting *,
+           .erp-f08-reduced,.erp-f08-reduced *,
+           .erp-f08-symbol-field,.erp-f08-symbol-field *))::before,
+html[data-erp-performance="true"][data-erp-theme] .app
+  :not(:is(.erp-f08-title-active,.erp-f08-title-active *,
+           .erp-f08-casting,.erp-f08-casting *,
+           .erp-f08-reduced,.erp-f08-reduced *,
+           .erp-f08-symbol-field,.erp-f08-symbol-field *))::after {
+  animation: none !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+}
+/* O cabeçalho Cinematic é criado em document.body, fora de .app. */
+html[data-erp-performance="true"][data-erp-theme] #cr-chrome
+  :not(:is(.erp-f08-title-active,.erp-f08-title-active *,
+           .erp-f08-reduced,.erp-f08-reduced *,
+           .erp-f08-casting,.erp-f08-casting *)),
+html[data-erp-performance="true"][data-erp-theme] #cr-chrome
+  :not(:is(.erp-f08-title-active,.erp-f08-title-active *,
+           .erp-f08-reduced,.erp-f08-reduced *,
+           .erp-f08-casting,.erp-f08-casting *))::before,
+html[data-erp-performance="true"][data-erp-theme] #cr-chrome
+  :not(:is(.erp-f08-title-active,.erp-f08-title-active *,
+           .erp-f08-reduced,.erp-f08-reduced *,
+           .erp-f08-casting,.erp-f08-casting *))::after {
+  animation: none !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+}
+/* Floating operational windows live outside .app; keep their controls static.
+ * This is NOT applied to SweetAlert Easter Eggs or progress indicators. */
+html[data-erp-performance="true"][data-erp-theme]
+  :is(#historico,#winAuditoria,#erp-settings,#aiDrawer,
+      #erpWorkDialog,#erpExportDialog,#erpSummaryDialog,
+      #erp-f07-about-dialog,#revelioArchive2026Dialog,
+      #auroraAchievementsDialog,#auroraFinanceDialog)
+  :not(:is(.erp-f08-casting,.erp-f08-casting *,
+           .erp-f08-reduced,.erp-f08-reduced *,
+           .erp-f08-stage,.erp-f08-stage *)),
+html[data-erp-performance="true"][data-erp-theme]
+  :is(#historico,#winAuditoria,#erp-settings,#aiDrawer,
+      #erpWorkDialog,#erpExportDialog,#erpSummaryDialog,
+      #erp-f07-about-dialog,#revelioArchive2026Dialog,
+      #auroraAchievementsDialog,#auroraFinanceDialog) {
+  animation: none !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+}
+
+/* F09 E04 — Scroll leve. No Glass, os próprios MODAIS mantinham
+ * backdrop-filter de 8 a 24 px enquanto conteúdos internos rolavam.
+ * A superfície fosca/gradientes, cores e bordas permanecem; remove-se
+ * somente o filtro de composição sobre o conteúdo móvel quando performance ON.
+ * Nenhuma otimização profunda de blur fora desse perfil é antecipada. */
+html[data-erp-theme="glassy-crm"][data-erp-performance="true"] body {
+  background-attachment: scroll !important;
+}
+html[data-erp-theme="glassy-crm"][data-erp-performance="true"]
+  :is(#erp-settings,#historico,#winAuditoria,#erpWorkDialog,
+      #erpExportDialog,#erpSummaryDialog,#aiDrawer,.ai-panel,
+      .floating-window,#auroraAchievementsDialog,#auroraFinanceDialog,
+      #erp-f07-about-dialog,#revelioArchive2026Dialog,
+      .aurora-voice-card,#cr-chrome) {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+/* Coberturas mantêm escurecimento e contraste; não desfocam cada quadro. */
+html[data-erp-theme="glassy-crm"][data-erp-performance="true"]
+  :is(#erp-settings,#erp-f07-about-dialog,#erpWorkDialog,
+      #erpExportDialog,#erpSummaryDialog,#auroraAchievementsDialog)::backdrop,
+html[data-erp-theme="glassy-crm"][data-erp-performance="true"]
+  :is(.history-modal-backdrop,.ai-backdrop,.aurora-voice-backdrop) {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+/* Evita suavização artificial de scroll em áreas operacionais internas.
+ * Não interfere no scroll do browser quando Modo Desempenho está desligado. */
+html[data-erp-performance="true"]
+  :is(#erp-settings,#historico,#winAuditoria,#erpWorkDialog,#erpExportDialog,
+      #erpSummaryDialog,#erp-f07-about-dialog,#auroraAchievementsDialog,
+      #revelioArchive2026Dialog,#aiDrawer,
+      .table-wrap,.win-body,.ai-body,.wc-body,.wc-table-scroll,
+      .export-body,.erp-settings-body,.erp-f07-about-body,.sidebar .nav) {
+  scroll-behavior: auto !important;
+}
