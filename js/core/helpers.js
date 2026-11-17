@@ -34,8 +34,56 @@ function setLoading(show, title='Sincronizando…') {
   $('loading').classList.toggle('show', show);
 }
 
+// Revelio: fechamento de segurança para notificações temporárias.
+// Não interfere em diálogos SweetAlert2 de confirmação ou em outros toasts.
 function toast(icon, title) {
-  Swal.fire({toast: true, position: 'top-end', showConfirmButton: false, timer: 2800, timerProgressBar: true, icon, title});
+  const duration = 2800;
+  const fallbackDelay = 4200;
+  let popup = null;
+  let safetyTimer = null;
+  let visibilityHandler = null;
+  let dueAt = 0;
+
+  function cleanup() {
+    if (safetyTimer !== null) { clearTimeout(safetyTimer); safetyTimer = null; }
+    if (visibilityHandler) {
+      document.removeEventListener('visibilitychange', visibilityHandler);
+      visibilityHandler = null;
+    }
+  }
+
+  function closeIfStillThisToast() {
+    if (!popup || !Swal.isVisible() || Swal.getPopup() !== popup ||
+        !popup.classList.contains('swal2-toast')) {
+      cleanup();
+      return;
+    }
+    cleanup();
+    Swal.close();
+  }
+
+  return Swal.fire({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: duration,
+    timerProgressBar: true,
+    icon,
+    title,
+    didOpen(element) {
+      popup = element;
+      dueAt = Date.now() + fallbackDelay;
+      safetyTimer = setTimeout(closeIfStillThisToast, fallbackDelay);
+      visibilityHandler = () => {
+        if (document.visibilityState === 'visible' && Date.now() >= dueAt) {
+          closeIfStillThisToast();
+        }
+      };
+      document.addEventListener('visibilitychange', visibilityHandler);
+    },
+    willClose: cleanup,
+    didDestroy: cleanup
+  });
 }
 
 function normalizeDate(v) {
